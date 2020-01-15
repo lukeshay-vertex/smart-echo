@@ -1,0 +1,41 @@
+{
+    "intents": [
+        {
+            "tag": "deploy",
+            "patterns": ["deploy", "please deploy", "run deploy of"],
+            "responses": ["deploy"],
+            "context": [""]
+        },
+        {
+            "tag": "bulkdeploy",
+            "patterns": ["bulkdeploy", "please bulk deploy", "bulk deploy", "bulk", "run bulk deploy"],
+            "responses": ["bulkdeploy"],
+            "context": [""]
+        },
+        {
+            "tag": "greeting",
+            "patterns": ["Hi", "Hey", "hello"],
+            "responses": ["greeting"],
+            "context": [""]
+        },
+        {
+            "tag": "oncall",
+            "patterns": ["whooncall", "on call", "who is on call", "oncall", "call"],
+            "responses": ["on call"],
+            "context": [""]
+        },
+        {
+            "tag": "version",
+            "patterns": ["version", "version of"],
+            "responses": ["version"],
+            "context": [""]
+        },
+        {
+            "tag": "automate",
+            "patterns": ["automate", "automate tests", "run automation", "automation", "test", "run tests"],
+            "responses": ["automate"],
+            "context": [""]
+        }
+   ]
+}
+ 
