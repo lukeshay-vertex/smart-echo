@@ -1,0 +1,5 @@
+black
+keras
+nltk
+numpy
+tensorflow
