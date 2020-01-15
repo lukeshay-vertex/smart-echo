@@ -12,10 +12,10 @@ ERROR_THRESHOLD = 0.01
 class SmartEcho:
     def __init__(self):
         self.lemmatizer = WordNetLemmatizer()
-        self.model = load_model("files/echo_model.h5")
-        self.intents = json.loads(open("files/intents.json").read())
-        self.words = pickle.load(open("files/words.pkl", "rb"))
-        self.classes = pickle.load(open("files/classes.pkl", "rb"))
+        self.model = load_model("model/echo_model.h5")
+        self.intents = json.loads(open("model/intents.json").read())
+        self.words = pickle.load(open("model/words.pkl", "rb"))
+        self.classes = pickle.load(open("model/classes.pkl", "rb"))
 
     def predict_command(self, command):
         p = self.bow(command, show_details=False)
@@ -63,4 +63,4 @@ def parse_command(command):
 
 if __name__ == "__main__":
     parse_command()
-o
+

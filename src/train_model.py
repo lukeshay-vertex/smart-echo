@@ -16,7 +16,7 @@ words = []
 classes = []
 documents = []
 ignore_words = ["?", "!", ".", ","]
-data_file = open("files/intents.json").read()
+data_file = open("model/intents.json").read()
 intents = json.loads(data_file)
 lemmatizer = WordNetLemmatizer()
 
@@ -30,7 +30,7 @@ for intent in intents["intents"]:
         if intent["tag"] not in classes:
             classes.append(intent["tag"])
 
-words = [lemmatizer.lematize(w.lower()) for w in words if w not in ignore_words]
+words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
 words = sorted(list(set(words)))
 
 classes = sorted(list(set(classes)))
@@ -40,8 +40,8 @@ print(len(classes), "classes", classes)
 print(len(words), "unique lemmatized words", words)
 
 
-pickle.dump(words, open("files/words.pkl", "wb"))
-pickle.dump(classes, open("files/classes.pkl", "wb"))
+pickle.dump(words, open("model/words.pkl", "wb"))
+pickle.dump(classes, open("model/classes.pkl", "wb"))
 
 training = []
 output_empty = [0] * len(classes)
@@ -78,6 +78,6 @@ model.compile(loss="categorical_crossentropy", optimizer=sgd, metrics=["accuracy
 hist = model.fit(
     np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1
 )
-model.save("files/echo_model.h5", hist)
+model.save("model/echo_model.h5", hist)
 
 print("model created")
